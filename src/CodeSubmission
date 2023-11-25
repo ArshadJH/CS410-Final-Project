@@ -1,0 +1,98 @@
+import React, { useState } from 'react';
+
+const CodeSubmission = () => {
+  const [classProjects, setClassProjects] = useState([
+    {
+      projectName: 'sample project',
+      codeFields: ['print("Hello world");'],
+    },
+  ]);
+
+  const handleProjectNameChange = (index, projectName) => {
+    const updatedProjects = [...classProjects];
+    updatedProjects[index].projectName = projectName;
+    setClassProjects(updatedProjects);
+  };
+
+  const handleCodeChange = (projectIndex, codeIndex, code) => {
+    const updatedProjects = [...classProjects];
+    updatedProjects[projectIndex].codeFields[codeIndex] = code;
+    setClassProjects(updatedProjects);
+  };
+
+  const addProject = () => {
+    setClassProjects([...classProjects, { projectName: '', codeFields: [''] }]);
+  };
+
+  const removeProject = (index) => {
+    const updatedProjects = [...classProjects];
+    updatedProjects.splice(index, 1);
+    setClassProjects(updatedProjects);
+  };
+
+  const addCodeField = (index) => {
+    const updatedProjects = [...classProjects];
+    updatedProjects[index].codeFields.push('');
+    setClassProjects(updatedProjects);
+  };
+
+  const removeCodeField = (projectIndex, codeIndex) => {
+    const updatedProjects = [...classProjects];
+    updatedProjects[projectIndex].codeFields.splice(codeIndex, 1);
+    setClassProjects(updatedProjects);
+  };
+
+  const handleSubmit = (name, length) => {
+    // Implement code submission logic here
+    alert(`${name || 'unnamed project'} has been submitted with ${length} files`);
+  };
+
+  return (
+    <div>
+      <h2>Code Submission</h2>
+      {classProjects.map((project, projectIndex) => (
+        <div key={projectIndex} style={{border:'3px solid black', padding:'5%', margin:'5%'}}>
+          <label>
+            Project Name:
+            <input
+              type="text"
+              placeholder={`project ${projectIndex}`}
+              value={project.projectName}
+              onChange={(e) => handleProjectNameChange(projectIndex, e.target.value)}
+            />
+          </label>
+          {project.codeFields.map((code, codeIndex) => (
+            <div key={codeIndex}>
+              <label>
+                Code {codeIndex + 1}:
+                <textarea
+                  rows="5"
+                  cols="50"
+                  value={code}
+                  onChange={(e) => handleCodeChange(projectIndex, codeIndex, e.target.value)}
+                />
+              </label>
+              <br/>
+              <button type="button" onClick={() => removeCodeField(projectIndex, codeIndex)}>
+                Remove Code Field
+              </button>
+            </div>
+          ))}
+          <button type="button" onClick={() => addCodeField(projectIndex)}>
+            Add Code Field
+          </button>
+          <button type="button" onClick={() => removeProject(projectIndex)}>
+            Remove Project
+          </button>
+        <button onClick={e => handleSubmit(project.projectName, project.codeFields.length)}>Submit Code</button>
+        </div>
+      ))}
+      <button type="button" onClick={addProject}>
+        Add Project
+      </button>
+      <br />
+    </div>
+  );
+};
+
+export default CodeSubmission;
