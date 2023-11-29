@@ -18,3 +18,6 @@ The second step is reading up on current UI/UX trends in the education space and
 The third step is coding a front-end for my website using a component/page-based design paradigm, I estimate this will take roughly 7 hours, largely due to the fact that I need to brush up on my JavaScript skills.
 The fourth step is coding a back-end for my website to facilitate navigation on the front-end, I estimate this will also take roughly 7 hours.
 The fifth and final step is a thorough comparison of my website and the current LiveDataLab website, which I will record various metrics for and display likely in PowerPoint format, I estimate this will take roughly 2 hours.
+
+# Documentation
+Website can be accessed at this link: https://1660200.playcode.io/
