@@ -21,3 +21,7 @@ The fifth and final step is a thorough comparison of my website and the current 
 
 # Documentation
 Website can be accessed at this link: https://1660200.playcode.io/
+
+My website can be used by computer science students to easily submit code they have written for class projects. The intention of this website is to evade the complicated version control upload process that is currently in place, and allow students to simply copy/paste code which they may have written for grading, thus saving student time and worry. Personally, I have been in the position of finishing my projects for this class, but speding considerable time managing the version control steps for each project only for my submission to fail until after multiple retries, whereas any technologically literate student can use my website to submit their code in a matter of seconds and just a few clicks of a mouse. This website is designed to accomodate just one computer science course, and unlimited projects and code blocks for each project.
+
+This software is implemented exclusively in the JavaScript programming language, specifically using the React Library. I used a component-based approach for easy organization, with each component representing one project, and that way the main class contains a list of projects in it's state representation and it can easily render all of these components similarly design-wise. My codebase is designed so that each 
